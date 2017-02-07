@@ -1,0 +1,7 @@
+<doc id="8705" title="رام" url="https://arz.wikipedia.org/wiki?curid=8705">
+رام
+
+الرام Random Access Memory) RAM) هو نوع من انواع تخزين الداتا على الكمبيوتر. بيتعمل فشكل الديرات المتكمله (Integrated circuits) اللى بتسمح بقراية و كتابة الداتا بشكل عشوائي (Random = عشوائي) عليها.
+
+
+</doc>

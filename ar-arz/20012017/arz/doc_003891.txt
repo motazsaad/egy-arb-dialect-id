@@ -1,0 +1,7 @@
+<doc id="8674" title="لينكس" url="https://arz.wikipedia.org/wiki?curid=8674">
+لينكس
+
+لينكس Linux (بيتنطق "ليِنكس" او "ليِنُكس") هو اسم عام بيطلق على اى نظام تشغيل ( نظام تشغيل Operating System ) من شبه اليونكس (Unix-like) بيستخدم اللينكس كيرنل (Linux Kernel).
+
+
+</doc>

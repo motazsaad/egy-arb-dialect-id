@@ -1,0 +1,15 @@
+<doc id="9816" title="فيروس" url="https://arz.wikipedia.org/wiki?curid=9816">
+فيروس
+
+الفيروسات دى مجموعه كبيره من الكائنات بيزيد عددها عن 5000 صنف و بتقف على الخط الفاصل بين الكائنات الحيه و الجماد.بيتكون الفيروس من حمضى نووى بيحيط به من الخارج غلاف بروتينى للحمايه.الفيروس كائن بيقوم بجزء من العمليات اللى بتعملها الكائنات الحية : بيتنفس و يتكاثر ، و فى نفس الوقت ما بيقومش بالجزءالتاني :ما بيقدرش يتحرك او يخرج.الفيروس كائن ضعيف جدا و اقرب للموت منه للحياه طول ما هو بره الخليه المصابه ، و على العكس من ساعة ما بيدخل اى خليه فبيسيطر عليها و بيحول كل امكانيتها لصالحه بهدف تكوين فيروسات جديده و فى النهايه بتموت الخليه المضيفه.الفيروس ممكن يصيب اى كائن حى من اول الانسان للحيوان للنبات و لحد الباكتيريا.
+En biología, un virusn. 1 (del latín virus, «toxina» o «veneno») es un agente infeccioso microscópico acelular que sólo puede multiplicarse dentro de las células de otros organismos.
+Los virus infectan todos los tipos de organismos, desde animales y plantas, hasta bacterias y arqueas. Los virus son demasiado pequeños para poder ser observados con la ayuda de un microscopio óptico, por lo que se dice que son submicroscópicos; aunque existen excepciones entre los Virus nucleocitoplasmáticos de ADN de gran tamaño, tales como el Megavirus chilensis, el cual se logra ver a través de microscopía óptica 1
+El primer virus conocido, el virus del mosaico del tabaco,n. 2 fue descubierto por Martinus Beijerinck en 1899,2 3 y actualmente se han descrito más de 5.000, si bien algunos autores opinan que podrían existir millones de tipos diferentes.4 5 Los virus se hallan en casi todos los ecosistemas de la Tierra y son el tipo de entidad biológica más abundante.5 6 El estudio de los virus recibe el nombre de virología,7 una rama de la microbiología.8 9
+(Enveloped).
+
+الفيروسات بيصنفوها على حسب الحمض الننوى بتاعها : DNA يا اما RNA
+و بتتصنيف كمان على حسب عدد شرايط الحمض النووى : ياما شريط واحد (Single-stranded) يا اما شريطين (Double-stranded)
+فى مجموعه خاصة مت فيروسات الـ RNA اسمها الريتروفيروسات (من اعضائها المشهورين الفيروس اللى بيسبب مرض الايدز) ، الريتروفيروسات عندها انزيم اسمه ترانسكريبتيز عكسى و دا وظيفته تحويل الحمض النووى بتاعها من RNA لـ DNA اثناء عملية التكاثر.
+
+
+</doc>
