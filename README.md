@@ -16,7 +16,7 @@ This corpus is aligned by [WikiDocsAligner](https://github.com/motazsaad/WikiDoc
 | words | 8,397,154 | 1,543,516 |
 | vocabulary | 740,055 | 215,659 |
 
-Citation information:
+To cite this resource:
 
 Motaz Saad (2017). _WikiDocsAligner: an off-the-shelf Wikipedia Documents Alignment Tool_. in The Second Palestinian International Conference on Information and
 Communication Technology (PICICT 2017). 
