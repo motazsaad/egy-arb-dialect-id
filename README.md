@@ -7,3 +7,11 @@ Corpus extracts from 20-01-2017 Wikipedia dumps
 
 
 This corpus is aligned by [WikiDocsAligner](https://github.com/motazsaad/WikiDocsAligner)
+
+## Corpus Information
+
+|  | Arabic Wikipedia | Egyptian Wikipedia |
+| --- | --- | --- |
+| documents | 10,197 | 10,197 |
+| words | 8,397,154 | 1,543,516 |
+| vocabulary | 740,055 | 215,659 |
