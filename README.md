@@ -1,4 +1,4 @@
-# comparableWikiCoprus
+# Comparable Wikipedia Coprus
 Comparable Wikipedia Corpus (aligned documents)
 
 Corpus extracts from 20-01-2017 Wikipedia dumps
@@ -7,6 +7,11 @@ Corpus extracts from 20-01-2017 Wikipedia dumps
 
 
 This corpus is aligned by [WikiDocsAligner](https://github.com/motazsaad/WikiDocsAligner)
+
+## Lanugage pairs list (20-01-2017):
+* Arabic-Egyptian 
+
+In the future, other language pairs will be included 
 
 ## Corpus Information
 
