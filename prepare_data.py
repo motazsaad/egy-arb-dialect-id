@@ -1,12 +1,13 @@
 import glob
 from bs4 import BeautifulSoup
 import os
+import clean_text
 
 ar_dir = 'ar-arz/20012017/ar/'
 arz_dir = 'ar-arz/20012017/arz/'
 
-ar_target_dir = 'train/wiki/ar/'
-arz_target_dir = 'train/wiki/arz/'
+ar_target_dir = 'ar_arz_wiki_train/wiki/ar/'
+arz_target_dir = 'ar_arz_wiki_train/wiki/arz/'
 
 
 def process(src_dir, target_dir):
@@ -16,6 +17,9 @@ def process(src_dir, target_dir):
         doc = open(f).read()
         soup = BeautifulSoup(doc, 'html.parser')
         text = soup.get_text()
+        text = clean_text.clean_doc(text)
+        if len(text.split()) < 7:
+            continue
         filename = os.path.basename(f)
         outfile = target_dir + filename
         print('writing out file {}'.format(outfile))

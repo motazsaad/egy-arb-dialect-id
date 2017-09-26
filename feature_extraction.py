@@ -64,8 +64,8 @@ def prepare_train_test(dataset, order, selection, max, split_indx, level):
     feature_sets = [(document_features(d, selected_features), c) for d, c in dataset]
     #print('sample of feature_sets:\n{}'.format(feature_sets[:3]))
     train_set, test_set = feature_sets[:split_indx], feature_sets[split_indx:]
-    print('train size {}'.format(len(train_set)))
-    print('test size {}'.format(len(test_set)))
+    print('ar_arz_wiki_train size {}'.format(len(train_set)))
+    print('ar_arz_wiki_test size {}'.format(len(test_set)))
     print('features are ready ...')
     return train_set, test_set
 
