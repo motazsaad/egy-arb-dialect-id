@@ -1,8 +1,7 @@
 
 
-ls -d train/wiki/arz/ | tail -n 1000 | xargs mv -t test/
+mv arz/doc_009* ../../test/arz/
+mv ar/doc_009* ../../test/ar/
 
-ls -d train/wiki/ar/ | tail -n 1000 | xargs mv -t test/
-
-
-mv train/wiki/arz/doc0000
+mv arz/doc_010* ../../test/arz/
+mv ar/doc_010* ../../test/ar/
