@@ -9,7 +9,7 @@ import argparse
 import pickle
 
 parser = argparse.ArgumentParser(description='build word gram model')
-parser.add_argument('-t', '--ar_arz_wiki_train-dir', type=str,
+parser.add_argument('-t', '--train-dir', type=str,
                     help='training directory.', required=True)
 parser.add_argument('-m', '--model', type=str,
                     help='model file.', required=True)
@@ -44,14 +44,7 @@ def build_model(train_directory, ngram_order, cut_freq_max, model_file_name, lev
     print('model written successfully!')
 
 
-# python build_gram_model.py -t Train_Filter_Corpus/ar_arz_wiki_train/ -o 1 -c 10 -m word_gram_models/Train_Filter_model_1g -l word
-# python build_gram_model.py -t Train_Filter_Corpus/ar_arz_wiki_train/ -o 4 -c 20 -m char_gram_models/Train_Filter_model_4g -l char
-# python build_gram_model.py -t train_multidialect_arabic/conversations/ -o 1 -c 3 -m word_gram_models/multidialect_model_1g -l word
-# python build_gram_model.py -t train_multidialect_arabic/conversations/ -o 4 -c 10 -m char_gram_models/multidialect_model_4g -l char
-# python build_gram_model.py -t train_multidialect_arabic/conversations/ -o 2 -c 3 -m word_gram_models/multidialect_model_2g -l word
-# python build_gram_model.py -t Train_Padic/conversation/ -o 2 -c 5 -m word_gram_models/padic_model_2g -l word
-# python build_gram_model.py -t Train_Padic/conversation/ -o 1 -c 5 -m word_gram_models/padic_model_1g -l word
-# python build_gram_model.py -t Train_Padic/conversation/ -o 4 -c 10 -m char_gram_models/padic_model_4g -l char
+# python build_gram_model.py -t train/ -o 4 -c 10 -m char_gram_models/4g_model -l char
 
 
 if __name__ == '__main__':
