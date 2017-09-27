@@ -40,8 +40,8 @@ ${python_cmd} ${langid_train_path}/DFfeatureselect.py --max_order ${n} ${train_c
 read -n1 -r -p "Press space to continue..." key
 
 
-printf "\n\n%s\n" "step 4: compute the IG weights for domain"
-${python_cmd} ${langid_train_path}/IGweight.py -d ${train_corpus}.model
+#printf "\n\n%s\n" "step 4: compute the IG weights for domain"
+#${python_cmd} ${langid_train_path}/IGweight.py -d ${train_corpus}.model
 
 read -n1 -r -p "Press space to continue..." key
 
