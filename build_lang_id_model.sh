@@ -11,7 +11,7 @@ python_cmd=${1}
 train_corpus=${2}
 n=${3}
 
-langid_train_path=~/tmp/langid/train
+langid_train_path=~/py2env/lib/python2.7/site-packages/langid/train
 
 printf "python_cmd: %s\n" "${python_cmd}"
 printf "n gram: %s\n" "${n}"
@@ -41,12 +41,12 @@ read -n1 -r -p "Press space to continue..." key
 
 
 printf "\n\n%s\n" "step 4: compute the IG weights for domain"
-${python_cmd} ${langid_train_path}/IGweight.py -d ${train_corpus}.model
+${python_cmd} ${langid_train_path}/IGweight.py -j 1 -d ${train_corpus}.model
 
 read -n1 -r -p "Press space to continue..." key
 
 printf "\n\n%s\n" "step 5: compute the IG weights for language"
-${python_cmd} ${langid_train_path}/IGweight.py -lb ${train_corpus}.model
+${python_cmd} ${langid_train_path}/IGweight.py -j 1 -lb ${train_corpus}.model
 
 read -n1 -r -p "Press space to continue..." key
 
