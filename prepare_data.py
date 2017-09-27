@@ -6,8 +6,8 @@ import clean_text
 ar_dir = 'ar-arz/20012017/ar/'
 arz_dir = 'ar-arz/20012017/arz/'
 
-ar_target_dir = 'ar_arz_wiki_train/wiki/ar/'
-arz_target_dir = 'ar_arz_wiki_train/wiki/arz/'
+ar_target_dir = 'train/ar/'
+arz_target_dir = 'train/arz/'
 
 
 def process(src_dir, target_dir):

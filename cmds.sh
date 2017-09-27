@@ -2,27 +2,27 @@
 
 
 # clean train and test
-rm ar_arz_wiki_train -rf
-rm ar_arz_wiki_test -rf
+rm train -rf
+rm test -rf
 
-mkdir -p ar_arz_wiki_train/wiki/arz/
-mkdir -p ar_arz_wiki_train/wiki/ar/
-mkdir -p ar_arz_wiki_test/arz/
-mkdir -p ar_arz_wiki_test/ar/
+mkdir -p train/arz/
+mkdir -p train/ar/
+mkdir -p test/arz/
+mkdir -p test/ar/
 
 # run python prepare
 python prepare_data.py
 
 # split test from train
-mv ar_arz_wiki_train/wiki/arz/doc_009* ar_arz_wiki_test/arz/
-mv ar_arz_wiki_train/wiki/ar/doc_009* ar_arz_wiki_test/ar/
-mv ar_arz_wiki_train/wiki/arz/doc_010* ar_arz_wiki_test/arz/
-mv ar_arz_wiki_train/wiki/ar/doc_010* ar_arz_wiki_test/ar/
+mv train/arz/doc_009* test/arz/
+mv train/ar/doc_009* test/ar/
+mv train/arz/doc_010* test/arz/
+mv train/ar/doc_010* test/ar/
 
 
 
 # count train and test
-ls ar_arz_wiki_train/wiki/arz/ | wc -l
-ls ar_arz_wiki_train/wiki/ar/ | wc -l
-ls ar_arz_wiki_test/arz/ | wc -l
-ls ar_arz_wiki_test/ar/ | wc -l
+ls train/arz | wc -l
+ls train/ar | wc -l
+ls test/arz | wc -l
+ls test/ar | wc -l
