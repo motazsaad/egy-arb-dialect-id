@@ -2,12 +2,16 @@
 
 
 # clean train and test
-rm ar_arz_wiki_train/wiki/arz/*
-rm ar_arz_wiki_train/wiki/ar/*
-rm ar_arz_wiki_test/arz/*
-rm ar_arz_wiki_test/ar/*
+rm ar_arz_wiki_train -rf
+rm ar_arz_wiki_test -rf
 
+mkdir -p ar_arz_wiki_train/wiki/arz/
+mkdir -p ar_arz_wiki_train/wiki/ar/
+mkdir -p ar_arz_wiki_test/arz/
+mkdir -p ar_arz_wiki_test/ar/
 
+# run python prepare
+python prepare_data.py
 
 # split test from train
 mv ar_arz_wiki_train/wiki/arz/doc_009* ar_arz_wiki_test/arz/
