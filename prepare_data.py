@@ -18,7 +18,7 @@ def process(src_dir, target_dir):
         soup = BeautifulSoup(doc, 'html.parser')
         text = soup.get_text()
         text = clean_text.clean_doc(text)
-        if len(text.split()) < 7:
+        if len(text.split()) < 10:
             continue
         filename = os.path.basename(f)
         outfile = target_dir + filename
