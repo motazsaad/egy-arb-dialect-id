@@ -11,7 +11,7 @@ python_cmd=${1}
 train_corpus=${2}
 n=${3}
 
-langid_train_path=~/py2env/lib/python2.7/site-packages/langid/train
+langid_train_path=~/tmp/langid/train
 
 printf "python_cmd: %s\n" "${python_cmd}"
 printf "n gram: %s\n" "${n}"
