@@ -25,7 +25,7 @@ def build_model(train_directory, ngram_order, cut_freq_max, model_file_name, lev
     train = list()
     labels = os.listdir(train_directory)
     for label in labels:
-        files = glob.glob(train_dir + label + "/*")
+        files = glob.glob(train_directory + label + "/*")
         for file in files:
             text = open(file, encoding='utf-8', errors='ignore').read().strip()
             train.append((text, label))
@@ -44,7 +44,7 @@ def build_model(train_directory, ngram_order, cut_freq_max, model_file_name, lev
     print('model written successfully!')
 
 
-# python build_gram_model.py -t train/ -o 4 -c 10 -m char_gram_models/4g_model -l char
+# python build_gram_model.py -t train/ -o 4 -c 100 -m char_gram_models/4g_model -l char
 
 
 if __name__ == '__main__':
