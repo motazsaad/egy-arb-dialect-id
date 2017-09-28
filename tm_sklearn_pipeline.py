@@ -20,76 +20,49 @@ from sklearn.datasets import load_files
 import logging
 logging.basicConfig(format='%(levelname)s:%(asctime)s:%(message)s', level=logging.INFO)
 
-corpus = [
-    'This is the first document.',
-    'This is the second second document.',
-    'And the third one.',
-    'Is this the first document?',
-    'This is the first document.',
-    'This is the second second second document.',
-    'And the third one.',
-    'Is this the first document?',
-]
 
-logging.info('loading data ...')
+
+
+
+logging.info(' loading training data ...')
 wiki_train = load_files('train/', encoding='utf-8')
-x_train = wiki_train.data
-y_train = wiki_train.target
-print('x_train dataset size', len(x_train))
-print('y_train dataset size', len(y_train))
+print('dataset size', len(wiki_train.data))
 print('labels: {}'.format(wiki_train.target_names))
-logging.info('loading data is done ...')
 
-logging.info('feature extraction ...')
-vectorizer = CountVectorizer(ngram_range=(4, 4), min_df=20, analyzer='char_wb')
+text_clf_pipeline = Pipeline([('vect', CountVectorizer(ngram_range=(4, 4), min_df=25, analyzer='char_wb')),
+                              ('tfidf', TfidfTransformer()),
+                              ('clf', MultinomialNB()), ])
+print('pipline info:')
+for i, step in enumerate(text_clf_pipeline.get_params(deep=False)['steps']):
+    print('step {}: {}'.format(i, step))
 
-analyzer = vectorizer.build_analyzer()
-test_sentence  = 'my name is motaz'
-# print('test analyzer ({}): {}'.format(test_sentence, analyzer(test_sentence)))
+parameters = {
+    'vect__ngram_range': ((4, 4), (5, 5), (4, 5)),
+}
 
-# x_train = corpus
-x_train_counts = vectorizer.fit_transform(x_train)
-# print(vectorizer.get_feature_names())
-# print('word counts: \n{}'.format(x_train_counts.toarray()))
-print('counts sum: {}'.format(np.sum(x_train_counts.toarray())))
+grid_search = GridSearchCV(text_clf_pipeline, parameters, n_jobs=-1, verbose=1)
+print("Performing grid search...")
+print("pipeline:", [name for name, _ in pipeline.steps])
+print("parameters:")
+pprint(parameters)
+t0 = time()
 
-tfidf_transformer = TfidfTransformer()
-x_train_tfidf = tfidf_transformer.fit_transform(x_train_counts)
-# print('tf-idf matrix: \n{}'.format(x_train_tfidf.toarray()))
-print('tf-idf sum: {}'.format(np.sum(x_train_tfidf.toarray())))
-print('training dims:', x_train_counts.shape)
-logging.info('feature extraction is done')
+logging.info(' train the classifier ...')
+text_clf_pipeline.fit(wiki_train.data, wiki_train.target)
+logging.info(' training is done ...')
 
-
-classifier = MultinomialNB()
-# classifier = GaussianNB()
-# classifier = SGDClassifier(loss='hinge', penalty='l2', alpha=1e-3, n_iter=5, random_state=42)
-# classifier = LinearSVC()
-
-
-logging.info('training ...')
-classifier = classifier.fit(x_train_tfidf.toarray(), y_train)
-logging.info('training is done')
-
-
-###############################
-print('testing')
-test_dir = 'test/'
+logging.info(' evaluation ...')
+logging.info(' loading test data ...')
 wiki_test = load_files('test/', encoding='utf-8')
-x_test = wiki_test.data
-y_test = wiki_test.target
-print('x_test dataset size', len(x_test))
-print('y_test dataset size', len(y_test))
+print('dataset size', len(wiki_test.data))
+print('labels: {}'.format(wiki_test.target_names))
 
-x_test_counts = vectorizer.transform(x_test)
-x_test_tfidf = tfidf_transformer.transform(x_test_counts)
-
-# predicted = classifier.predict(x_test_counts.toarray())
-predicted = classifier.predict(x_test_tfidf.toarray())
-
-print('classifier:', classifier.__class__)
-print('accuracy:', metrics.accuracy_score(y_test, predicted));
-print(metrics.classification_report(y_test, predicted))
-
-logging.info('testing is done')
+predicted = text_clf_pipeline.predict(wiki_test.data)
+print('Accuracy = {}'.format(np.mean(predicted == wiki_test.target)))
+print('classification report \n{}'.format(metrics.classification_report(y_pred=predicted,
+                                                                        y_true=wiki_test.target)))
+print('confusion matrix \n{}'.format(metrics.confusion_matrix(y_pred=predicted,
+                                                                        y_true=wiki_test.target)))
+print('f1-score: {0:.2f}'.format(metrics.f1_score(y_pred=predicted, y_true=wiki_test.target)))
+logging.info(' done !')
 
