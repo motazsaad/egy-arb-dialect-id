@@ -23,37 +23,34 @@ import logging
 logging.basicConfig(format='%(levelname)s:%(asctime)s:%(message)s', level=logging.INFO)
 
 
-
-
-
 logging.info(' loading training data ...')
 wiki_train = load_files('ar_arz_wiki_corpus/train/', encoding='utf-8')
 print('dataset size', len(wiki_train.data))
 print('labels: {}'.format(wiki_train.target_names))
 
-text_clf_pipeline = Pipeline([('vect', CountVectorizer(ngram_range=(4, 4), min_df=25, analyzer='char_wb')),
+text_clf_pipeline = Pipeline([('vect', CountVectorizer(min_df=25, analyzer='char_wb')),
                               ('tfidf', TfidfTransformer()),
                               ('clf', MultinomialNB()), ])
 print('pipline info:')
 for i, step in enumerate(text_clf_pipeline.get_params(deep=False)['steps']):
     print('step {}: {}'.format(i, step))
 
-logging.info(' train the classifier ...')
-text_clf_pipeline.fit(wiki_train.data, wiki_train.target)
-logging.info(' training is done ...')
+parameters = {
+    'vect__ngram_range': ((4, 4), (5, 5), (4, 5)),
+}
 
-logging.info(' evaluation ...')
-logging.info(' loading test data ...')
-wiki_test = load_files('ar_arz_wiki_corpus/test/', encoding='utf-8')
-print('dataset size', len(wiki_test.data))
-print('labels: {}'.format(wiki_test.target_names))
+grid_search = GridSearchCV(text_clf_pipeline, parameters, n_jobs=-1, verbose=1)
+print("Performing grid search...")
+print("pipeline:", [name for name, _ in text_clf_pipeline.steps])
+print("parameters:")
+pprint(parameters)
+t0 = time()
+grid_search.fit(wiki_train.data, wiki_train.target)
+print("done in %0.3fs" % (time() - t0))
+print()
 
-predicted = text_clf_pipeline.predict(wiki_test.data)
-print('Accuracy = {}'.format(np.mean(predicted == wiki_test.target)))
-print('classification report \n{}'.format(metrics.classification_report(y_pred=predicted,
-                                                                        y_true=wiki_test.target)))
-print('confusion matrix \n{}'.format(metrics.confusion_matrix(y_pred=predicted,
-                                                                        y_true=wiki_test.target)))
-print('f1-score: {0:.2f}'.format(metrics.f1_score(y_pred=predicted, y_true=wiki_test.target)))
-logging.info(' done !')
-
+print("Best score: %0.3f" % grid_search.best_score_)
+print("Best parameters set:")
+best_parameters = grid_search.best_estimator_.get_params()
+for param_name in sorted(parameters.keys()):
+    print("\t%s: %r" % (param_name, best_parameters[param_name]))
