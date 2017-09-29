@@ -23,7 +23,7 @@ import logging
 logging.basicConfig(format='%(levelname)s:%(asctime)s:%(message)s', level=logging.INFO)
 
 
-def experiment(text_clf_pipeline):
+def experiment(text_clf_pipeline, data, target):
     logging.info(' loading training data ...')
     wiki_train = load_files('ar_arz_wiki_corpus/train/', encoding='utf-8')
     print('dataset size', len(wiki_train.data))
