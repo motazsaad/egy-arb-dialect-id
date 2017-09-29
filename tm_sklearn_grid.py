@@ -22,6 +22,7 @@ from time import time
 import logging
 logging.basicConfig(format='%(levelname)s:%(asctime)s:%(message)s', level=logging.INFO)
 
+import psutil
 
 logging.info(' loading training data ...')
 wiki_train = load_files('ar_arz_wiki_corpus/train/', encoding='utf-8')
@@ -54,3 +55,5 @@ print("Best parameters set:")
 best_parameters = grid_search.best_estimator_.get_params()
 for param_name in sorted(parameters.keys()):
     print("\t%s: %r" % (param_name, best_parameters[param_name]))
+
+grid_search.estimator
