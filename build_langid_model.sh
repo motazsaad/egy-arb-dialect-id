@@ -3,7 +3,7 @@
 #corpus=${1}
 corpus=./ar_arz_wiki_corpus/train/
 model_dir=.model
-for order in 6 7
+for order in 7
 do 
 rm -rf ${model_dir}
 python langid-1.1.6/langid/train/index.py ${corpus}
